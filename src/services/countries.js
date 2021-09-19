@@ -7,7 +7,7 @@ const getAllCountries = async() => {
         const requestGetAll = await axios.get(`${baseUrl}/all`)
 
         let { data } = requestGetAll
-        return data.slice(0, 50) // pagination
+        return data.slice(0, 50)
     } catch (error) {
         return null
     }
@@ -18,7 +18,6 @@ const getSingleCountry = async(nameCountry) => {
         let requestGetSingle = await axios.get(`${baseUrl}/name/${nameCountry}`)
 
         if (nameCountry.length === 3) {
-            // this is for Search by ISO 3166-1 2-letter or 3-letter country code
             requestGetSingle = await axios.get(`${baseUrl}/alpha/${nameCountry}`)
         }
 
