@@ -15,7 +15,12 @@ const getAllCountries = async() => {
 
 const getSingleCountry = async(nameCountry) => {
     try {
-        const requestGetSingle = await axios.get(`${baseUrl}/name/${nameCountry}`)
+        let requestGetSingle = await axios.get(`${baseUrl}/name/${nameCountry}`)
+
+        if (nameCountry.length === 3) {
+            // this is for Search by ISO 3166-1 2-letter or 3-letter country code
+            requestGetSingle = await axios.get(`${baseUrl}/alpha/${nameCountry}`)
+        }
 
         let { data } = requestGetSingle
         return data

@@ -47,6 +47,16 @@ class SingleCountry extends Component {
             )
         }
 
+        if(!this.props.countries) {
+            return (
+                <div variant="primary" className='d-flex justify-content-center'>
+                    <p>
+                        Country Not Found 
+                    </p>
+                </div>
+            )
+        }
+
         const country = this.props.countries[0]
 
         return (
