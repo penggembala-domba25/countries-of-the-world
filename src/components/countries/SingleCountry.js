@@ -320,7 +320,7 @@ class SingleCountry extends Component {
                                                                         <div className="col text-end">
                                                                             {
                                                                                 country.borders.map((border, index) => (
-                                                                                    <a href={`http://localhost:3000/country/${border}`}>
+                                                                                    <a href={`/country/${border}`}>
                                                                                         {border}
                                                                                         {index + 1 < country.borders.length ? ',' : null}
                                                                                     </a>
