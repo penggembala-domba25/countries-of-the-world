@@ -30,6 +30,8 @@ class SingleCountry extends Component {
 
     render() {
         const { isLoading } = this.state
+
+        console.log(this.props.countries)
                 
         if(isLoading) {
             return (
@@ -57,7 +59,7 @@ class SingleCountry extends Component {
             )
         }
 
-        const country = this.props.countries[0]
+        const country = this.props.countries[0] || this.props.countries
 
         return (
             <div>
