@@ -31,8 +31,6 @@ class SingleCountry extends Component {
     render() {
         const { isLoading } = this.state
 
-        console.log(this.props.countries)
-                
         if(isLoading) {
             return (
                 <div variant="primary" className='d-flex justify-content-center'>
