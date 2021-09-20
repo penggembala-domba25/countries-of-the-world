@@ -13,7 +13,7 @@ const reducer = (state = { message: null, variant: null }, action) => {
     }
 }
 
-export const addNotification = (notification, timeNotif = 5000) => {
+export const addNotification = (notification) => {
     clearTimeout(timeoutID)
 
     return dispatch => {
