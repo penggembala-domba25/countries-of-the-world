@@ -15,11 +15,23 @@ const getAllCountries = async() => {
 
 const getSingleCountry = async(nameCountry) => {
     try {
+        if (nameCountry === nameCountry.toUpperCase() && nameCountry.length === 3) {
+            return getSingleCountryBasedCodeISO(nameCountry)
+        }
+
         let requestGetSingle = await axios.get(`${baseUrl}/name/${nameCountry}`)
 
-        if (nameCountry.length === 3) {
-            requestGetSingle = await axios.get(`${baseUrl}/alpha/${nameCountry}`)
-        }
+        let { data } = requestGetSingle
+        return data
+    } catch (error) {
+        console.log(error)
+        return null
+    }
+}
+
+const getSingleCountryBasedCodeISO = async(nameCountry) => {
+    try {
+        let requestGetSingle = await axios.get(`${baseUrl}/alpha/${nameCountry}`)
 
         let { data } = requestGetSingle
         return data
