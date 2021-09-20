@@ -15,6 +15,13 @@ class AllCountries extends Component {
             isLoading: true
         }
     }
+
+    getUniqueID() {
+        const uniqueID = Math.floor(Math.random() * 1000000)
+
+        return uniqueID
+    }
+
     componentDidMount() {
         this.props.initializeCountries().then(() => {
             this.setState({
@@ -62,7 +69,7 @@ class AllCountries extends Component {
                             >
                                 {
                                     countries.map((country) => (
-                                        <Col>
+                                        <Col key={this.getUniqueID()}>
                                             <Link 
                                                 to={`/country/${country.name}`} 
                                                 style={{textDecoration: 'none', color: 'black'}}

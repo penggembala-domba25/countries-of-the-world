@@ -10,8 +10,14 @@ class SingleCountry extends Component {
         super(props)
 
         this.state = {
-            isLoading: true
+            isLoading: true,
         }
+    }
+
+    getUniqueID() {
+        let uniqueID = Math.floor(Math.random() * 100000)
+
+        return uniqueID
     }
 
     componentDidMount() {
@@ -184,7 +190,7 @@ class SingleCountry extends Component {
                                                                                 <Accordion.Body>
                                                                                     {
                                                                                         Object.keys(country.translations).map((key) => (
-                                                                                            <ListGroup.Item>
+                                                                                            <ListGroup.Item key={this.getUniqueID()}>
                                                                                                 <div className="container p-0">
                                                                                                     <div className="row p-0">
                                                                                                         <div className="col-auto text-start">
@@ -211,7 +217,7 @@ class SingleCountry extends Component {
                                                         <ListGroup>
                                                             {
                                                                 country.languages.map((language) => (
-                                                                    <ListGroup.Item>
+                                                                    <ListGroup.Item key={this.getUniqueID()}>
                                                                         <div className="container p-0">
                                                                             <div className="row p-0">
                                                                                 <div className="col-auto text-start">
@@ -330,7 +336,7 @@ class SingleCountry extends Component {
                                                                         <div className="col text-end">
                                                                             {
                                                                                 country.borders.map((border, index) => (
-                                                                                    <a href={`/country/${border}`}>
+                                                                                    <a href={`/country/${border}`} key={this.getUniqueID()}>
                                                                                         {border}
                                                                                         {index + 1 < country.borders.length ? ',' : null}
                                                                                     </a>
@@ -446,7 +452,7 @@ class SingleCountry extends Component {
                                                     <Tab.Pane eventKey="currencies">
                                                         {
                                                             country.currencies.map(curr => (
-                                                                <div>
+                                                                <div key={this.getUniqueID()}>
                                                                     <ListGroup>
                                                                         <ListGroup.Item>
                                                                             <div className="container p-0">
